@@ -47,7 +47,7 @@ Aluguel: Armazena os dados dos alugueis dos carros.
 
 Seu trabalho:
 
-- Crie uma nova branch com seu nome a partir da Master, desenvolva as funcionalidades a seguir e submita um pull request
+- Faça um fork do projeto, crie uma nova branch com seu nome a partir da Master, desenvolva as funcionalidades a seguir e submita um pull request
   no projeto.
 - Desenvolva um endpoit para listar todos os carros da frota.
 - Desnvolva um endpoint que receba um arquivo .rtn e faça seu processamento e popule os dados na tabela ALUGUEL.
