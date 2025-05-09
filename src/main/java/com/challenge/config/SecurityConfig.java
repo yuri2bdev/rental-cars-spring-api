@@ -20,18 +20,20 @@ public class SecurityConfig {
     @Value("${cors.allowed-origins-front}")
     String frontEndUrl;
 
+    // Configuração do Spring Security
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/api/carros/**", "/api/alugueis/**").permitAll()
-                                .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/index.html").permitAll()
-                                .anyRequest().authenticated()
-                );
+                                .anyRequest().permitAll() // Permitir todas as requisições sem autenticação
+                )
+                .cors(); // Aqui estamos habilitando o CORS no Spring Security
+
         return http.build();
     }
 
+    // Configuração do CORS para o Spring MVC
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
@@ -39,14 +41,14 @@ public class SecurityConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry
                         .addMapping("/**")
-                        .allowedOrigins(frontEndUrl)
+                        .allowedOrigins(frontEndUrl) // Permite as origens do frontend
                         .allowedMethods(HttpMethod.GET.name(),
                                 HttpMethod.POST.name(),
                                 HttpMethod.PUT.name(),
-                                HttpMethod.DELETE.name());
+                                HttpMethod.DELETE.name())
+                        .allowedHeaders("*")
+                        .allowCredentials(true);
             }
         };
     }
-
-
 }
