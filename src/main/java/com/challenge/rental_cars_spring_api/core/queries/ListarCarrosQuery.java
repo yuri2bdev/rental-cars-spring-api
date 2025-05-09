@@ -1,7 +1,8 @@
 package com.challenge.rental_cars_spring_api.core.queries;
 
-import com.challenge.rental_cars_spring_api.core.queries.dtos.ListarCarrosQueryResultItem;
-import com.challenge.rental_cars_spring_api.infrastructure.repositories.CarroRepository;
+import com.challenge.rental_cars_spring_api.core.port.CarroRepositoryPort;
+import com.challenge.rental_cars_spring_api.core.dto.CarroMapper;
+import com.challenge.rental_cars_spring_api.core.dto.ListarCarrosQueryResultItem;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +12,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ListarCarrosQuery {
 
-    private final CarroRepository carroRepository;
+    private final CarroRepositoryPort carroRepository;
+    private final CarroMapper carroMapper;
 
     public List<ListarCarrosQueryResultItem> execute() {
-        return null;
+        return carroRepository.buscarTodos().stream()
+                .map(carroMapper::toListarCarrosQueryResultItem)
+                .toList();
     }
 }
