@@ -16,19 +16,14 @@ public class CorsConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         
-        // Permitir todas as origens para facilitar o desenvolvimento
         config.setAllowedOrigins(Arrays.asList("http://localhost:4200", "http://localhost:8080"));
         
-        // Permitir todos os cabeçalhos
         config.addAllowedHeader("*");
         
-        // Permitir todos os métodos (GET, POST, PUT, DELETE, etc)
         config.addAllowedMethod("*");
         
-        // Permitir credenciais
         config.setAllowCredentials(true);
         
-        // Expor cabeçalhos específicos
         config.setExposedHeaders(Arrays.asList("Content-Disposition", "Content-Type"));
         
         source.registerCorsConfiguration("/**", config);

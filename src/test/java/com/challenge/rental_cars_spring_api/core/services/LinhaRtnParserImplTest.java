@@ -60,7 +60,6 @@ class LinhaRtnParserImplTest {
 
     @Test
     void deveProcessarLinhaValida() {
-        // Formato da linha: carroId(2) + clienteId(2) + dataAluguel(8) + dataDevolucao(8)
         String linha = "0102" + LocalDate.now().format(DATE_FORMATTER) + LocalDate.now().plusDays(5).format(DATE_FORMATTER);
         
         when(carroRepository.existePorId(1L)).thenReturn(true);

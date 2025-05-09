@@ -40,7 +40,6 @@ class ListarAlugueisQueryTest {
 
     @BeforeEach
     void setUp() {
-        // Criar objetos usando builder
         Carro carro = Carro.builder()
                 .id(1L)
                 .modelo("Onix")

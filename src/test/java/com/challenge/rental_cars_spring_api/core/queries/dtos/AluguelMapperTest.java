@@ -85,7 +85,7 @@ class AluguelMapperTest {
                 .nome("João Silva")
                 .cpf("12345678901")
                 .cnh("98765432100")
-                .telefone("519999999") // Telefone com tamanho inválido
+                .telefone("519999999")
                 .build();
                 
         Aluguel aluguelComTelefoneInvalido = Aluguel.builder()
