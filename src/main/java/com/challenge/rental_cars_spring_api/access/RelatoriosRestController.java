@@ -20,7 +20,7 @@ import java.io.IOException;
 
 @Tag(name = "Relatórios", description = "Endpoints para geração de relatórios em PDF")
 @RestController
-@RequestMapping("/relatorios")
+@RequestMapping("/api/relatorios")
 @RequiredArgsConstructor
 public class RelatoriosRestController {
 

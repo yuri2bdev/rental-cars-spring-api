@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 
 @RestController
-@RequestMapping("/alugueis")
+@RequestMapping("/api/alugueis")
 @RequiredArgsConstructor
 public class AlugueisRestController {
 
